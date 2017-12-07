@@ -42,3 +42,13 @@ on boot
     write /sys/module/process_reclaim/parameters/pressure_min 10
     write /sys/module/process_reclaim/parameters/per_swap_size 1024
     exec - root root system -- /system/bin/init.qcom.power.sh
+
+on property:sys.boot_completed=1
+	write /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres 85
+	write /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres 75
+	write /sys/devices/system/cpu/cpu0/core_ctl/max_cpus 4
+	write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 1
+	write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 75
+	write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 85
+	write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 2
+	write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 0

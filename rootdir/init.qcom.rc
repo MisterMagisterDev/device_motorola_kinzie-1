@@ -1,4 +1,4 @@
-import init.mmi.usb.rc
+#import init.mmi.usb.rc
 import init.qcom.power.rc
 
 on early-init
@@ -360,6 +360,7 @@ service ipacm /system/bin/ipacm
     user net_admin
     group net_admin inet
     writepid /dev/cpuset/system-background/tasks
+    disabled
 
 service qti /system/vendor/bin/qti
     class main
@@ -518,12 +519,14 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     user camera
     group camera system inet input graphics
     writepid /dev/cpuset/system-background/tasks
+    setenv LD_LIBRARY_PATH /usr/libexec/droid-hybris/lib-dev-alog:/vendor/lib:/system/lib
 
 service qseecomd /system/bin/qseecomd
     class core
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
+    disabled
 
 service per_mgr /system/bin/pm-service
     class core
@@ -543,6 +546,7 @@ service time_daemon /system/bin/time_daemon
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
+    disabled
 
 service adsprpcd /system/bin/adsprpcd
     class main
@@ -583,6 +587,7 @@ service ssr_setup /system/bin/ssr_setup
 service batt_health /system/bin/batt_health
     class main
     group mot_pwric
+    disabled
 
 service charger /charger
     class charger
@@ -612,6 +617,7 @@ service adspd /system/bin/adspd
    socket adspdsock stream 0660 system audio
    user audio
    group audio input qcom_diag
+   disabled
 
 service perfd /system/bin/perfd
     class main

@@ -111,7 +111,7 @@ TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=none androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 earlyprintk=msm_hsl_uart,0xf991e000 utags.blkdev=/dev/block/bootdevice/by-name/utags utags.backup=/dev/block/bootdevice/by-name/utagsBackup boot_cpus=0-5
+BOARD_KERNEL_CMDLINE := console=none androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x37 ehci-hcd.park=3 selinux=0 lpm_levels.sleep_disabled=1 earlyprintk=msm_hsl_uart,0xf991e000 utags.blkdev=/dev/block/bootdevice/by-name/utags utags.backup=/dev/block/bootdevice/by-name/utagsBackup boot_cpus=0-7
 BOARD_KERNEL_PAGESIZE :=  4096
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
@@ -139,7 +139,7 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 TARGET_USES_64_BIT_BINDER := true
 BOARD_USES_QC_TIME_SERVICES := true
-USE_CLANG_PLATFORM_BUILD := true
+USE_CLANG_PLATFORM_BUILD := false
 
 # Power
 TARGET_POWERHAL_VARIANT := qcom
